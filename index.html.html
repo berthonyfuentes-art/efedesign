@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>EFE DESIGN | Panel</title>
+<style>
+    /* Estilos Generales */
+    body { margin: 0; background-color: #050505; background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 50px 50px; color: white; font-family: 'Segoe UI', sans-serif; display: flex; }
+    
+    /* Sidebar */
+    #sidebar { width: 260px; height: 100vh; background: #111; padding: 30px; border-right: 1px solid #222; position: fixed; display: flex; flex-direction: column; align-items: center; }
+    .profile-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2px solid #FFD700; margin-bottom: 15px; }
+    .menu-btn { display: block; background: #1a1a1a; color: white; text-decoration: none; padding: 12px 20px; margin-bottom: 10px; border-radius: 6px; font-weight: bold; text-transform: uppercase; transition: 0.3s; width: 180px; }
+    .menu-btn:hover { background-color: #0056b3; border-left: 4px solid #007bff; }
+
+    /* Contenido */
+    #main-content { margin-left: 320px; padding: 60px; flex: 1; }
+    .card { background: #161616; padding: 30px; border-radius: 12px; border: 1px solid #222; width: 250px; }
+
+    /* Reproductor Fijo */
+    #player-container { position: fixed; bottom: 20px; left: 30px; width: 220px; background: #111; padding: 15px; border: 1px solid #333; border-radius: 8px; z-index: 20; }
+    .controls { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+    button { background: #333; color: white; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px; }
+    input[type=range] { width: 80px; }
+</style>
+</head>
+
+<body>
+
+    <div id="sidebar">
+        <img src="https://i.imgur.com/qpr1tyo.gif" class="profile-img">
+        <h2 style="margin:0">EFE</h2>
+        <p style="color:#888; font-size: 12px; margin-bottom: 20px;">ID: 374206304</p>
+        <nav>
+            <a href="#" class="menu-btn">INICIO</a>
+            <a href="#" class="menu-btn">GALERIA&nbsp;</a>
+            <a href="#" class="menu-btn">VIDEOS&nbsp;</a>
+        </nav>
+    </div>
+
+    <div id="main-content">
+        <div class="card">
+            <h3>NOVEDADES</h3>
+            <p style="color: #FFD700; font-weight: bold;">0 xats</p>
+        </div>
+    </div>
+
+    <div id="player-container">
+        <p style="margin:0; font-size: 11px; color: #FFD700;">RADIO LATINA EN VIVO</p>
+        <audio id="myAudio" src="https://radio.toplatino.net/stream"></audio>
+        <div class="controls">
+          <button onclick="document.getElementById('myAudio').play()">▶</button>
+            <button onclick="document.getElementById('myAudio').pause()">⏸</button>
+            <input type="range" min="0" max="1" step="0.1" value="0.5" oninput="document.getElementById('myAudio').volume = this.value">
+        </div>
+    </div>
+
+</body>
+</html>
